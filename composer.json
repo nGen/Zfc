@@ -1,0 +1,29 @@
+{
+    "name": "ngen/zfc",
+    "description": "Extenion on Popular ZF - Commons from nGen Technologies.",
+    "type": "library",
+    "keywords": [
+        "zf2",
+		"zfc",
+		"ngen"
+    ],
+    "authors": [
+        {
+            "name": "Starx",
+            "email": "mail@mrnepal.com",
+            "homepage": "http://mrnepal.com"
+        },
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zf-commons/zfc-base": "dev-master",
+    },
+    "autoload": {
+        "psr-0": {
+            "nGenZfc": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
