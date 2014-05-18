@@ -7,6 +7,29 @@ use ZfcBase\Mapper\AbstractDbMapper;
 abstract class ExtendedAbstractDbMapper extends AbstractDbMapper {
 
     /**
+     * Updates only selected Field
+     * @param  [Array]  $array      Array of fields to be updated
+     * @param  [String] $where      Where condition
+     * @param  [String] $tableName  [Optional] Tablename
+     * @return [Boolean]            Execution result
+     */
+    public function updateField($array, $where, $tableName = null)
+    {
+        $this->initialize();
+        $tableName = $tableName ?: $this->tableName;
+
+        $sql = $this->getSql()->setTable($tableName);
+        $update = $sql->update();
+
+        $update->set($array)
+            ->where($where);
+
+        $statement = $sql->prepareStatementForSqlObject($update);
+
+        return $statement->execute();
+    }    
+
+    /**
      * @return int|null|false
      */
     public function lastInsertId()
