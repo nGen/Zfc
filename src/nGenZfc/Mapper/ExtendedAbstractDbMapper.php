@@ -2,6 +2,7 @@
 
 namespace nGenZfc\Mapper;
 
+use Zend\Db\Sql\Sql; 
 use ZfcBase\Mapper\AbstractDbMapper;
 
 abstract class ExtendedAbstractDbMapper extends AbstractDbMapper {
@@ -64,7 +65,7 @@ abstract class ExtendedAbstractDbMapper extends AbstractDbMapper {
     }
 
     /**
-     * @param void	
+     * @param void  
      * @return void
      */
     public function rollBack()
@@ -79,9 +80,9 @@ abstract class ExtendedAbstractDbMapper extends AbstractDbMapper {
     protected function execute(PreparableSqlInterface $sqlObject)
     {
         return $this -> getSql() -> prepareStatementForSqlObject($sqlObject)->execute();
-    }	
+    }   
 
-	
+    
     /**
      * @param Zend\Db\Adapter\ResultInterface $source
      * @return array
@@ -101,6 +102,22 @@ abstract class ExtendedAbstractDbMapper extends AbstractDbMapper {
     protected function toString(SqlInterface $sqlObject)
     {
         return $this->getSql()->getSqlStringForSqlObject($sqlObject);
+    }
+
+    /**
+     * Get SQL Query String
+     * @param  [SqlObject] $sql_object [SQL Object like Select, Update etc]
+     * @return [String|Boolen] Query String or False if encounters error.
+     */
+    protected function getSQLString($sql_object) {
+        $sql = new Sql($this -> dbAdapter);
+        try {
+            $string = $sql->getSqlStringForSqlObject($sql_object);
+            return $string;    
+        } catch(\Exception $e) {
+            return false;
+        }
+        
     }
     
 }
