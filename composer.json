@@ -2,7 +2,7 @@
     "name": "ngen/zfc",
     "description": "Extenion on Popular ZF - Commons from nGen Technologies.",
     "type": "library",
-	"license": "MIT",
+	"license": "GPL v2",
     "keywords": [
         "zf2",
 		"zfc",
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-0": {
-            "nGenZfc": "src/"
+            "nGen\\Zfc": "src/"
         },
         "classmap": [
             "./Module.php"

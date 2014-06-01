@@ -1,6 +1,6 @@
 <?php
 
-namespace nGenZfc\Mapper;
+namespace nGen\Zfc\Mapper;
 
 use Zend\Db\Sql\Sql; 
 use ZfcBase\Mapper\AbstractDbMapper;

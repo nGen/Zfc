@@ -1,6 +1,6 @@
 <?php
 
-namespace nGenZfc;
+namespace nGen\Zfc;
 
 use Zend\ModuleManager\ModuleManager;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
